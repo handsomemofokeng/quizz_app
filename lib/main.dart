@@ -19,8 +19,9 @@ class _MyAppState extends State<MyApp> {
 
   Widget build(BuildContext context) {
     var questions = [
-      "What\'s your favorite color? this is to test if the text is aligned to the center",
-      "What\'s your favorite animal?"
+      "What\'s your favorite color?",
+      "What\'s your favorite animal?",
+      "What\'s your favorite car?",
     ];
 
     void _answerQuestion(int num) {
@@ -28,7 +29,7 @@ class _MyAppState extends State<MyApp> {
         if (_questionIndex < (questions.length - 1)) {
           _questionIndex++;
         } else {
-          print("no more questions");
+          _questionIndex = 0;
         }
       });
       print("Option $num selected");
