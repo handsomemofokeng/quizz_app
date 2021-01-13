@@ -21,12 +21,21 @@ class _MyAppState extends State<MyApp> {
 
   Widget build(BuildContext context) {
     var questions = [
-      "What\'s your favorite color?",
-      "What\'s your favorite animal?",
-      "What\'s your favorite car?",
+      {
+        "question": "What\'s your favorite color?",
+        "options": ["Black", "Red", "Blue", "White"]
+      },
+      {
+        "question": "What\'s your favorite animal?",
+        "options": ["Rabbit", "Elephant", "Snake", "Lion"]
+      },
+      {
+        "question": "What\'s your favorite car?",
+        "options": ["Alfa Romeo", "Audi", "BMW", "Mercedes"]
+      }
     ];
 
-    void _answerQuestion(int num) {
+    void _answerQuestion() {
       setState(() {
         if (_questionIndex < (questions.length - 1)) {
           _questionIndex++;
@@ -34,7 +43,6 @@ class _MyAppState extends State<MyApp> {
           _questionIndex = 0;
         }
       });
-      print("Option $num selected");
     }
 
     return MaterialApp(
@@ -48,21 +56,12 @@ class _MyAppState extends State<MyApp> {
             child: Column(
               children: <Widget>[
                 Question(
-                  questions[_questionIndex],
+                  questions[_questionIndex]["question"],
                 ),
-                Answer(),
-                RaisedButton(
-                  child: Text("Option 2"),
-                  onPressed: () {
-                    _answerQuestion(2);
-                  },
-                ),
-                RaisedButton(
-                  child: Text("Option 3"),
-                  onPressed: () {
-                    _answerQuestion(3);
-                  },
-                ),
+                ...(questions[_questionIndex]["options"] as List<String>)
+                    .map((option) {
+                  return Answer(_answerQuestion, option);
+                }).toList()
               ],
             ),
           ),
