@@ -19,22 +19,22 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   int _questionIndex = 0;
 
-  Widget build(BuildContext context) {
-    var questions = [
-      {
-        "question": "What\'s your favorite color?",
-        "options": ["Black", "Red", "Blue", "White"]
-      },
-      {
-        "question": "What\'s your favorite animal?",
-        "options": ["Rabbit", "Elephant", "Snake", "Lion"]
-      },
-      {
-        "question": "What\'s your favorite car?",
-        "options": ["Alfa Romeo", "Audi", "BMW", "Mercedes"]
-      }
-    ];
+  final questions = const [
+    {
+      "question": "What\'s your favorite color?",
+      "options": ["Black", "Red", "Blue", "White"]
+    },
+    {
+      "question": "What\'s your favorite animal?",
+      "options": ["Rabbit", "Elephant", "Lion", "Snake"]
+    },
+    {
+      "question": "What\'s your favorite car?",
+      "options": ["Alfa Romeo", "Audi", "BMW", "Mercedes"]
+    }
+  ];
 
+  Widget build(BuildContext context) {
     void _answerQuestion() {
       setState(() {
         if (_questionIndex < (questions.length - 1)) {
