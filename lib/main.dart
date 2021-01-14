@@ -20,6 +20,13 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   int _questionIndex = 0, _totalScore = 0;
 
+  void _restartQuiz() {
+    setState(() {
+      _questionIndex = 0;
+      _totalScore = 0;
+    });
+  }
+
   final _questions = const [
     {
       "question": "What\'s your favorite car?",
@@ -34,17 +41,17 @@ class _MyAppState extends State<MyApp> {
       "question": "What\'s your favorite color?",
       "options": [
         {"text": "Black", "score": 9},
-        {"text": "Red", "score": 8},
+        {"text": "Red", "score": 7},
         {"text": "Blue", "score": 10},
-        {"text": "White", "score": 7}
+        {"text": "White", "score": 5}
       ]
     },
     {
       "question": "What\'s your favorite transmission?",
       "options": [
         {"text": "Manual", "score": 10},
-        {"text": "Automatic", "score": 8},
-        {"text": "DSG", "score": 5},
+        {"text": "Automatic", "score": 4},
+        {"text": "DSG", "score": 6},
       ]
     },
   ];
@@ -73,7 +80,7 @@ class _MyAppState extends State<MyApp> {
                 questionIndex: _questionIndex,
                 questions: _questions,
               )
-            : Result(_totalScore),
+            : Result(_totalScore, _restartQuiz),
       ),
     );
   }
