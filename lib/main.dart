@@ -29,12 +29,12 @@ class _MyAppState extends State<MyApp> {
 
   final _questions = const [
     {
-      "question": "What\'s your favorite car ?",
+      "question": "What\'s your favorite car brand?",
       "options": [
         {"text": "Alfa Romeo", "score": 10},
         {"text": "Audi", "score": 7},
         {"text": "BMW", "score": 5},
-        {"text": "Mercedes", "score": 4}
+        {"text": "Mercedes-Benz", "score": 4}
       ]
     },
     {
